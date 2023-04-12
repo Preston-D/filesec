@@ -1,2 +1,5 @@
 
 .DS_Store
+*.plist
+filesec.dSYM/Contents/Resources/DWARF/filesec
+filesec
