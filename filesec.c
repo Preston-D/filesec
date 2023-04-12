@@ -6,14 +6,18 @@
 #include <stdlib.h>
 
 // Function to encrypt/decrypt the input buffer
-void process_buffer(char *buffer, ssize_t size, int operation) {
-    for (int i = 0; i < size; i++) {
+void process_buffer(char *buffer, ssize_t size, int operation)
+{
+    for (int i = 0; i < size; i++)
+    {
         buffer[i] = (operation == 1) ? buffer[i] + 100 : buffer[i] - 100;
     }
 }
 
-int main(int argc, char **argv) {
-    if (argc != 3 || (strcmp(argv[1], "-e") != 0 && strcmp(argv[1], "-d") != 0)) {
+int main(int argc, char **argv)
+{
+    if (argc != 3 || (strcmp(argv[1], "-e") != 0 && strcmp(argv[1], "-d") != 0))
+    {
         printf("Usage:\n");
         printf("./filesec -e|-d [filename.txt]\n");
         return -1;
@@ -23,17 +27,34 @@ int main(int argc, char **argv) {
     char *input_file_name = argv[2];
     char output_file_name[128];
 
-    snprintf(output_file_name, sizeof(output_file_name), "%s_%s.txt",
-             input_file_name, operation == 1 ? "enc" : "dec");
+    // Find the last dot in the input_file_name
+    char *dot_position = strrchr(input_file_name, '.');
+
+    // If a dot is found, calculate its position relative to the input_file_name
+    size_t dot_index = dot_position ? dot_position - input_file_name : strlen(input_file_name);
+
+    // Copy the first part of the input_file_name until the last dot
+    snprintf(output_file_name, dot_index + 1, "%s", input_file_name);
+
+    // Append the "_enc" or "_dec" suffix
+    strcat(output_file_name, operation == 1 ? "_enc" : "_dec");
+
+    // Append the remaining part of the input_file_name after the last dot (including the dot)
+    if (dot_position)
+    {
+        strcat(output_file_name, dot_position);
+    }
 
     int input_fd = open(input_file_name, O_RDONLY);
-    if (input_fd < 0) {
+    if (input_fd < 0)
+    {
         perror("Error opening input file");
         return -1;
     }
 
     int output_fd = open(output_file_name, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-    if (output_fd < 0) {
+    if (output_fd < 0)
+    {
         perror("Error opening output file");
         close(input_fd);
         return -1;
@@ -46,13 +67,15 @@ int main(int argc, char **argv) {
     ssize_t read_count, write_count;
     int read_calls = 0, write_calls = 0;
 
-    while ((read_count = read(input_fd, buffer, sizeof(buffer))) > 0) {
+    while ((read_count = read(input_fd, buffer, sizeof(buffer))) > 0)
+    {
         read_calls++;
 
         process_buffer(buffer, read_count, operation);
 
         write_count = write(output_fd, buffer, read_count);
-        if (write_count < 0) {
+        if (write_count < 0)
+        {
             perror("Error writing to output file");
             close(input_fd);
             close(output_fd);
@@ -61,7 +84,8 @@ int main(int argc, char **argv) {
         write_calls++;
     }
 
-    if (read_count < 0) {
+    if (read_count < 0)
+    {
         perror("Error reading from input file");
         close(input_fd);
         close(output_fd);
