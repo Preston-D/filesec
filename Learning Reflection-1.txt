@@ -1,0 +1,78 @@
+CSCI-347 Learning Reflection
+
+Name: Preston Duffield
+
+================================================================
+1. What are some of the most important lessons you learned while working on this assignment? Why do you think so?
+
+The most important lesson I learned in this project was how to properly set up and debug C programs.
+I learned how to use the read and write functions, and how to define a buffer for them.
+I also learned a good amount of C syntax, and feel that I am a more refined C programmer.
+
+
+
+
+
+
+
+
+
+==========================================================================
+2. What do you want to learn more about, and why?
+
+I would like to continue to write in C. I think that understanding C programming is at the heart of most other languages.
+Many languages I write in tend to barely touch the hardware.
+I feel that writing in C is very important to see the underlying implementation of many other languages.
+
+
+
+
+
+
+
+
+
+==========================================================================
+3. What were some of your most challenging/powerful moments and what made them so?
+
+When I first encrypted a file was a powerful moment. I was quite happy to see my program run, after much trial and error.
+The most challenging moment was trying to set up an environment on my local computer to run and debug C.
+
+
+
+
+
+
+
+
+
+
+===============================================================================
+4. What did you learn were your greatest strengths? Your biggest areas for improvement?
+
+I feel that I already had a good grasp of C from programming in it before.
+I could definitely improve my understanding of how the C program implements its functions.
+
+
+
+
+
+
+
+
+
+
+===============================================================================
+5. Reread the learning objectives (LOs) of the assignment. State them below and rate your confidence about them on a scale from 1 to 5, where 1 is Not Confident at all, and 5 is Very Confident. 
+Example: LO1: Demonstrate how to write clean and readable code in C. (Confidence level: 4)
+
+
+Demonstrate how to use system calls to perform I/O operations such as reading from a file and writing to a file. (Confidence level: 4)
+Identify the required file permissions for various I/O operations.  (Confidence level: 4)
+Recognize the effect of buffer size on I/O efficiency. (Confidence level: 5)
+Create a C application that incorporates error handling (user errors and system errors). (Confidence level: 5)
+Demonstrate how to write clean and readable code in C. (Confidence level: 5)
+
+
+
+

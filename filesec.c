@@ -73,9 +73,10 @@ int main(int argc, char **argv)
     struct timeval start_time, end_time;
     gettimeofday(&start_time, NULL);
 
-    // Initialize a buffer to read the input file in chunks and
-    // variables to store the number of read/write calls and the number of bytes read/written.
+    // Initialize a buffer to read the input file in chunks
     char buffer[1024];
+
+    // variables to store the number of read/write calls and the number of bytes read/written.
     ssize_t read_count, write_count;
     int read_calls = 0, write_calls = 0;
 
@@ -84,7 +85,7 @@ int main(int argc, char **argv)
     // process the buffer using the process_buffer function.
     while ((read_count = read(input_fd, buffer, sizeof(buffer))) > 0)
     {
-        printf("Read %ld bytes from input file\n", read_count); // Add this line
+        // printf("Read %ld bytes from input file\n", read_count); // Add this line
         // Update the read/write call counters accordingly.
         read_calls++;
 
@@ -98,7 +99,7 @@ int main(int argc, char **argv)
             close(output_fd);
             return -1;
         }
-        printf("Wrote %ld bytes to output file\n", write_count); // Add this line
+        // printf("Wrote %ld bytes to output file\n", write_count); // Add this line
         write_calls++;
     }
 

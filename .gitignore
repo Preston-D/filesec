@@ -3,3 +3,11 @@
 *.plist
 filesec.dSYM/Contents/Resources/DWARF/filesec
 filesec
+writeup/texput.log
+writeup/project1.log
+writeup/project1.aux
+output.csv
+input_enc_dec.txt
+input_enc.txt
+input_dec.txt
+input.txt
